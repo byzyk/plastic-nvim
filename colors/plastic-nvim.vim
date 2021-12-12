@@ -1,113 +1,47 @@
 lua << EOF
-vim.g.colors_name = "one-nvim"
+vim.g.colors_name = "plastic-nvim"
 
-if vim.o.background == "dark" then
-     --[[ 
-          Dark Colors
-          @syntax-hue:          220;
-          @syntax-saturation:   13%;
-          @syntax-brightness:   18%;
-          @syntax-fg:     @mono-1;
-          @syntax-gutter-background-color-selected: lighten(@syntax-bg, 8%);
-          for color in $(cat colors/one-nvim.vim | head -n 41 | tail -n 28 | cut -d '#' -f2 | cut -d '"' -f1); do hex2xterm $color | grep 'Hexadecimal\|xterm256'; done
-     --]]
-     mono_1        = {"#abb2bf", 145, "mono_1"}  -- hsl(@syntax-hue, 14%, 71%);
-     mono_2        = {"#828997", 102, "mono_2"}  -- hsl(@syntax-hue,  9%, 55%);
-     mono_3        = {"#5c6370",  59, "mono_3"}  -- hsl(@syntax-hue, 10%, 40%);
-     mono_4        = {"#4b5263", 240, "mono_4"}  --
-     hue_1         = {"#56b6c2", 247, "hue_1"}   -- hsl(187, 47%, 55%);
-     hue_2         = {"#61afef",  75, "hue_2"}   -- hsl(207, 82%, 66%);
-     hue_3         = {"#c678dd", 176, "hue_3"}   -- hsl(286, 60%, 67%);
-     hue_4         = {"#98c379", 114, "hue_4"}   -- hsl( 95, 38%, 62%);
-     hue_5         = {"#e06c75", 168, "hue_5"}   -- hsl(355, 65%, 65%);
-     hue_5_2       = {"#be5046", 131, "hue_5_2"} -- hsl(  5, 48%, 51%);
-     hue_6         = {"#d19a66", 247, "hue_6"}   -- hsl( 29, 54%, 61%);
-     hue_6_2       = {"#e5c07b", 180, "hue_6_2"} -- hsl( 39, 67%, 69%);
-     syntax_bg     = {"#282c34",  17, "syntax_bg"}     -- hsl(@syntax-hue, @syntax-saturation, @syntax-brightness);
-     syntax_gutter = {"#636d83", 241, "syntax_gutter"} -- darken(@syntax-fg, 26%);
-     syntax_cursor = {"#2c323c",  23, "syntax_cursor"} 
-     syntax_accent = {"#528bff",  69, "syntax_accent"} -- hsl(@syntax-hue, 100%, 66% );
-     vertsplit     = {"#181a1f", 234, "vertsplit"}
-     special_grey  = {"#3b4048", 238, "special_grey"}
-     visual_grey   = {"#3e4452",  59, "visual_grey"}
-     pmenu         = {"#333841",  59, "pmenu"}
-     term_black    = {"#282c34",  17, "term_black"}
-     term_blue     = {"#61afef",  75, "term_blue"}
-     term_cyan     = {"#56b6c2", 247, "term_cyan"}
-     term_white    = {"#dcdfe4", 188, "term_white"}
-     term_8        = {"#5d677a", 242, "term_8"}
-     syntax_color_added    = {"#43d08a", 78, "syntax_color_added"}     -- hsl(150,  60%, 54%);
-     syntax_color_modified = {"#e0c285", 250, "syntax_color_modified"} -- hsl(40,   60%, 70%);
-     syntax_color_removed  = {"#e05252", 244, "syntax_color_removed"}   -- hsl(0,    70%, 60%);
-else 
-     --[[ 
-          Light Colors
-          @syntax-hue:          230;
-          @syntax-saturation:   1%;
-          @syntax-brightness:   98%;
-          @syntax-fg:     @mono-1;
-          @syntax-gutter-background-color-selected: darken(@syntax-bg, 8%);
-          for color in $(cat colors/one-nvim.vim | head -n 79 | tail -n 28 | cut -d '#' -f2 | cut -d '"' -f1); do hex2xterm $color | grep 'Hexadecimal\|xterm256'; done
-     --]]
-     mono_1        = {"#383A42",  59, "mono_1"}        -- hsl(@syntax-hue, 8%, 24%);
-     mono_2        = {"#696c77",  60, "mono_2"}        -- hsl(@syntax-hue, 6%, 44%);
-     mono_3        = {"#a0a1a7", 247, "mono_3"}        -- hsl(@syntax-hue, 4%, 64%);
-     mono_4        = {"#c2c2c3", 251, "mono_4"}        --
-     hue_1         = {"#0184bc",  31, "hue_1"}         -- hsl(198, 99%, 37%);
-     hue_2         = {"#4078f2",  69, "hue_2"}         -- hsl(221, 87%, 60%);
-     hue_3         = {"#a626a4", 243, "hue_3"}         -- hsl(301, 63%, 40%);
-     hue_4         = {"#50a14f", 242, "hue_4"}         -- hsl(119, 34%, 47%);
-     hue_5         = {"#e45649", 244, "hue_5"}         -- hsl(  5, 74%, 59%);
-     hue_5_2       = {"#ca1243", 241, "hue_5_2"}       -- hsl(344, 84%, 43%);
-     hue_6         = {"#986801",  94, "hue_6"}         -- hsl(41, 99%, 30%);
-     hue_6_2       = {"#c18401", 242, "hue_6_2"}       -- hsl(41, 99%, 38%)
-     syntax_bg     = {"#fafafa", 231, "syntax_bg"}     -- hsl(@syntax-hue, @syntax-saturation, @syntax-brightness);
-     syntax_gutter = {"#9e9e9e", 247, "syntax_gutter"} -- darken(@syntax-bg, 36%);
-     syntax_cursor = {"#f0f0f0", 255, "syntax_cursor"}
-     syntax_accent = {"#526fff", 246, "syntax_accent"} -- hsl(@syntax-hue, 100%, 66% );
-     vertsplit     = {"#e7e9e1", 254, "vertsplit"}
-     special_grey  = {"#d3d3d3", 252, "special_grey"}
-     visual_grey   = {"#d0d0d0", 252, "visual_grey"}
-     pmenu         = {"#dfdfdf", 254, "pmenu"}
-     term_black    = {"#383a42", 237, "term_black"}
-     term_blue     = {"#0184bc", 31, "term_blue"}
-     term_cyan     = {"#0997b3", 243, "term_cyan"}
-     term_white    = {"#fafafa", 231, "term_white"}
-     term_8        = {"#4f525e", 240, "term_8"}
-     syntax_color_added    = {"#2db448", 65, "syntax_color_added"}    -- hsl(132,  60%, 44%);
-     syntax_color_modified = {"#f2a60d", 137, "syntax_color_modified"} -- hsl(40,   90%, 50%);
-     syntax_color_removed  = {"#ff1414", 88, "syntax_color_removed"}  -- hsl(0,    100%, 54%);
-end
-
+--[[ 
+    Dark Colors
+    @syntax-hue:          220;
+    @syntax-saturation:   13%;
+    @syntax-brightness:   18%;
+    @syntax-fg:     @mono-1;
+    @syntax-gutter-background-color-selected: lighten(@syntax-bg, 8%);
+    for color in $(cat colors/one-nvim.vim | head -n 41 | tail -n 28 | cut -d '#' -f2 | cut -d '"' -f1); do hex2xterm $color | grep 'Hexadecimal\|xterm256'; done
+--]]
+mono_1        = {"#c6ccd7", 145, "mono_1"}  -- hsl(@syntax-hue, 14%, 71%);
+mono_2        = {"#a9b2c3", 102, "mono_2"}  -- hsl(@syntax-hue,  9%, 55%);
+mono_3        = {"#5f6672",  59, "mono_3"}  -- hsl(@syntax-hue, 10%, 40%);
+mono_4        = {"#4b5263", 240, "mono_4"}  --
+hue_1         = {"#56b6c2", 247, "hue_1"}   -- hsl(187, 47%, 55%);
+hue_2         = {"#61afef",  75, "hue_2"}   -- hsl(207, 82%, 66%);
+hue_3         = {"#b57edc", 176, "hue_3"}   -- hsl(286, 60%, 67%);
+hue_4         = {"#98c379", 114, "hue_4"}   -- hsl( 95, 38%, 62%);
+hue_5         = {"#e06c75", 168, "hue_5"}   -- hsl(355, 65%, 65%);
+hue_5_2       = {"#be5046", 131, "hue_5_2"} -- hsl(  5, 48%, 51%);
+hue_6         = {"#d19a66", 247, "hue_6"}   -- hsl( 29, 54%, 61%);
+hue_6_2       = {"#e5c07b", 180, "hue_6_2"} -- hsl( 39, 67%, 69%);
+syntax_bg     = {"#21252b",  17, "syntax_bg"}     -- hsl(@syntax-hue, @syntax-saturation, @syntax-brightness);
+syntax_gutter = {"#636d83", 241, "syntax_gutter"} -- darken(@syntax-fg, 26%);
+syntax_cursor = {"#2c323c",  23, "syntax_cursor"} 
+syntax_accent = {"#1085ff",  69, "syntax_accent"} -- hsl(@syntax-hue, 100%, 66% );
+vertsplit     = {"#181a1f", 234, "vertsplit"}
+special_grey  = {"#3b4048", 238, "special_grey"}
+visual_grey   = {"#3e4452",  59, "visual_grey"}
+pmenu         = {"#333841",  59, "pmenu"}
+term_black    = {"#282c34",  17, "term_black"}
+term_blue     = {"#61afef",  75, "term_blue"}
+term_cyan     = {"#56b6c2", 247, "term_cyan"}
+term_white    = {"#dcdfe4", 188, "term_white"}
+term_8        = {"#5d677a", 242, "term_8"}
+syntax_color_added    = {"#98c379", 78, "syntax_color_added"}     -- hsl(150,  60%, 54%);
+syntax_color_modified = {"#e5c08b", 250, "syntax_color_modified"} -- hsl(40,   60%, 70%);
+syntax_color_removed  = {"#e06c75", 244, "syntax_color_removed"}   -- hsl(0,    70%, 60%);
+     
 -- Common 
 local pink = {"#d291e4", 251, "pink"}
 syntax_color_renamed  = {"#33a0ff", 75, "syntax_color_renamed"}  -- hsl(208, 100%, 60%);
-
--- Vim Primary Colors
---[[
-     Mentioned here https://github.com/Th3Whit3Wolf/onebuddy/pull/7
-     vim-startify and maybe more plugins rely on these colors
---]]
-Red  = {"#e88388", 174, "Red"}
-DarkRed  = {"#e06c75", 168, "DarkRed"}
-Blue  = {"#61afef", 75, "Blue"}
-DarkBlue  = {"#528bff", 69, "DarkBlue"}
-Green  = {"#98c379", 114, "Green"}
-DarkGreen  = {"#50a14f", 242, "DarkGreen"}
-Orange  = {"#d19a66", 247, "Orange"}
-DarkOrange  = {"#c18401", 232, "DarkOrange"}
-Yellow  = {"#e5c07b", 180, "Yellow"}
-DarkYellow  = {"#986801", 94, "DarkYellow"}
-Purple  = {"#a626a4", 243, "Purple"}
-Violet  = {"#b294bb", 139, "Violet"}
-Magenta  = {"#ff80ff", 213, "Magenta"}
-DarkMagenta  = {"#a626a4", 243, "DarkMagenta"}
-Black  = {"#333841", 59 , "Black"}
-Grey  = {"#636d83", 243, "Grey"}
-White  = {"#f2e5bc", 223, "White"}
-Cyan  = {"#8abeb7", 109, "Cyan"}
-DarkCyan  = {"#80a0ff", 111, "DarkCyan"}
-Aqua  = {"#8ec07c", 108, "Aqua"}
 
 --[[ DO NOT EDIT `BG` NOR `FG`. ]]
 local BG = "bg"
@@ -116,10 +50,10 @@ local NONE = {}
 
 --[[ These are the ones you should edit. ]]
 -- This is the only highlight that must be defined separately.
-local highlight_group_normal = {fg = mono_1, bg = syntax_bg}
+local highlight_group_normal = {fg = mono_1, bg = NONE}
 
 local normal = (function()
-    if vim.g.one_nvim_transparent_bg ~= true then
+    if vim.g.plastic_nvim_transparent_bg ~= true then
         return  { fg = mono_1, bg = syntax_bg }
     else
         return  { fg = mono_1, bg = NONE }
@@ -136,7 +70,7 @@ local highlight_groups = {
      bold         = { style = 'bold'},
      ColorColumn  = { fg = none, bg = syntax_cursor },
      Conceal      = { fg = mono_4, bg = syntax_bg },
-     Cursor       = { fg = none, bg = syntax_accent },
+     Cursor       = { style = 'reverse' },
      CursorIM     = { fg = none},
      CursorColumn = { fg = none, bg = syntax_cursor },
      CursorLine   = { fg = none, bg = syntax_cursor },
@@ -147,9 +81,9 @@ local highlight_groups = {
      Folded       = { fg = mono_3, bg = syntax_bg },
      FoldColumn   = { fg = mono_3, bg = syntax_cursor },
      IncSearch    = { fg = hue_6, bg = mono_3 },
-     LineNr       = { fg = mono_4 },
-     CursorLineNr = { fg = mono_1, bg = syntax_cursor },
-     MatchParen   = { fg = hue_5, bg = syntax_cursor, style = 'underline,bold' },
+     LineNr       = { fg = mono_2 },
+     CursorLineNr = { fg = mono_2, bg = syntax_cursor },
+     MatchParen   = { fg = hue_5, bg = syntax_cursor, style = 'bold' },
      Italic       = { fg = none, style = 'italic'},
      ModeMsg      = { fg = mono_1 },
      MoreMsg      = { fg = mono_1 },
@@ -164,16 +98,16 @@ local highlight_groups = {
      Whitespace   = { fg = special_grey},
      StatusLine   = { fg = mono_1, bg = syntax_cursor },
      StatusLineNC = { fg = mono_3 },
-     TabLine      = { fg = mono_2, bg = visual_grey},
-     TabLineFill  = { fg = mono_3, bg = visual_grey},
-     TabLineSel   = { fg = syntax_bg, bg = hue_2 },
+     TabLine      = { fg = mono_1, bg = none },
+     TabLineFill  = { fg = none, bg = none },
+     TabLineSel   = { fg = hue_6, bg = none },
      Title        = { fg = mono_1, bg = none, style = 'bold'},
      Visual       = { fg = none, bg = visual_grey},
      VisualNOS    = { fg = none, bg = visual_grey},
      WarningMsg   = { fg = hue_5 },
      TooLong      = { fg = hue_5 },
      WildMenu     = { fg = mono_1, bg = mono_3 },
-     SignColumn   = { fg = none, bg = syntax_bg },
+     SignColumn   = { fg = none, bg = none },
      Special      = { fg = hue_2 },
 
 ---------------------------
@@ -190,31 +124,31 @@ local highlight_groups = {
 ----------------------------------
 
      Comment        = { fg = mono_3,  style = 'italic'},
-     Constant       = { fg = hue_4, bg = none},
+     Constant       = { fg = mono_1, bg = none},
      String         = { fg = hue_4, bg = none},
-     Character      = { fg = hue_4, bg = none},
-     Number         = { fg = hue_6, bg = none},
-     Boolean        = { fg = hue_6, bg = none},
-     Float          = { fg = hue_6, bg = none},
-     Identifier     = { fg = hue_5, bg = none},
-     Function       = { fg = hue_2, bg = none},
-     Statement      = { fg = hue_3, bg = none},
-     Conditional    = { fg = hue_3, bg = none},
-     Repeat         = { fg = hue_3, bg = none},
-     Label          = { fg = hue_3, bg = none},
-     Operator       = { fg = syntax_accent },
+     Character      = { fg = hue_1, bg = none},
+     Number         = { fg = hue_1, bg = none},
+     Boolean        = { fg = hue_1, bg = none},
+     Float          = { fg = hue_1, bg = none},
+     Identifier     = { fg = mono_1, bg = none},
+     Function       = { fg = hue_6, bg = none},
+     Statement      = { fg = hue_5, bg = none},
+     Conditional    = { fg = hue_5, bg = none},
+     Repeat         = { fg = hue_5, bg = none},
+     Label          = { fg = hue_5, bg = none},
+     Operator       = { fg = hue_5 },
      Keyword        = { fg = hue_5, bg = none},
-     Exception      = { fg = hue_3, bg = none},
-     PreProc        = { fg = hue_6_2, bg = none},
-     Include        = { fg = hue_2, bg = none},
-     Define         = { fg = hue_3, bg = none},
-     Macro          = { fg = hue_3, bg = none},
-     PreCondit      = { fg = hue_6_2, bg = none},
-     Type           = { fg = hue_6_2, bg = none},
-     StorageClass   = { fg = hue_6_2, bg = none},
-     Structure      = { fg = hue_6_2, bg = none},
-     Typedef        = { fg = hue_6_2, bg = none},
-     Special        = { fg = hue_2, bg = none},
+     Exception      = { fg = hue_5, bg = none},
+     PreProc        = { fg = hue_5, bg = none},
+     Include        = { fg = hue_5, bg = none},
+     Define         = { fg = hue_5, bg = none},
+     Macro          = { fg = hue_5, bg = none},
+     PreCondit      = { fg = hue_5, bg = none},
+     Type           = { fg = hue_2, bg = none},
+     StorageClass   = { fg = hue_2, bg = none},
+     Structure      = { fg = hue_2, bg = none},
+     Typedef        = { fg = hue_2, bg = none},
+     Special        = { fg = hue_6_2, bg = none},
      SpecialChar    = { fg = none},
      Tag            = { fg = none},
      Delimiter      = { fg = none},
@@ -229,15 +163,15 @@ local highlight_groups = {
 -- Diff Highlighting --
 -----------------------
 
-     DiffAdd     = { fg = syntax_color_added, bg = visual_grey},
-     DiffChange  = { fg = syntax_color_modified, bg = visual_grey},
-     DiffDelete  = { fg = syntax_color_removed, bg = visual_grey},
-     DiffText    = { fg = hue_2, bg = visual_grey},
-     DiffAdded   = { fg = hue_4, bg = visual_grey},
-     DiffFile    = { fg = hue_5, bg = visual_grey},
-     DiffNewFile = { fg = hue_4, bg = visual_grey},
-     DiffLine    = { fg = hue_2, bg = visual_grey},
-     DiffRemoved = { fg = hue_5, bg = visual_grey},
+     DiffAdd     = { fg = syntax_color_added },
+     DiffChange  = { fg = syntax_color_modified },
+     DiffDelete  = { fg = syntax_color_removed },
+     DiffText    = { fg = hue_2 },
+     DiffAdded   = { fg = hue_4 },
+     DiffFile    = { fg = hue_5 },
+     DiffNewFile = { fg = hue_4 },
+     DiffLine    = { fg = hue_2 },
+     DiffRemoved = { fg = hue_5 },
 
 ---------------------------
 -- Filetype Highlighting --
@@ -247,7 +181,7 @@ local highlight_groups = {
      asciidocListingBlock = { fg = mono_2 },
 
 -- C/C++ highlighting
-     cInclude           = { fg = hue_3 },
+     cInclude           = { fg = hue_5 },
      cPreCondit         = { fg = hue_3 },
      cPreConditMatch    = { fg = hue_3 },
      cType              = { fg = hue_3 },
