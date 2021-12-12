@@ -6,20 +6,20 @@ This fork modified from `one-nvim` to [Plastic](https://plastictheme.com/palette
 - Colors are almost the same, mainly focus on `Plastic legacy v2` theme
 - Lualine colorscheme added
 
-## Screenshots
-
-Dark theme
-
-![dark theme](assets/dark.png)
-
-Light theme
-
-![light theme](assets/light.png)
-
-*Font:* Jet Brains Mono
-*Statusline:* [Spaceline](https://github.com/glepnir/spaceline.vim)
-*RGB Highlightin:* [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
-*Minimap* [minimap.vim](https://github.com/wfxr/minimap.vim)
+<!-- ## Screenshots -->
+<!---->
+<!-- Dark theme -->
+<!---->
+<!-- ![dark theme](assets/dark.png) -->
+<!---->
+<!-- Light theme -->
+<!---->
+<!-- ![light theme](assets/light.png) -->
+<!---->
+<!-- *Font:* Jet Brains Mono -->
+<!-- *Statusline:* [Spaceline](https://github.com/glepnir/spaceline.vim) -->
+<!-- *RGB Highlightin:* [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) -->
+<!-- *Minimap* [minimap.vim](https://github.com/wfxr/minimap.vim) -->
 
 ## Prerequisites
 
