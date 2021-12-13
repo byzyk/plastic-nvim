@@ -10,8 +10,8 @@ This fork modified from `one-nvim` to [Plastic](https://plastictheme.com/palette
 
 ![plastic-nvim](assets/plastic-nvim.png)
 *Font:* [Hack NF](https://github.com/ryanoasis/nerd-fonts/releases/latest) | 
-*Lualine:* [Lualine](https://github.com/nvim-lualine/lualine.nvim) | 
-*RGB Highlightin:* [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
+*statusline:* [Lualine](https://github.com/nvim-lualine/lualine.nvim) | 
+*RGB highlighting:* [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
 
 ## Prerequisites
 
