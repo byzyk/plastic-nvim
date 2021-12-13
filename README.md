@@ -3,23 +3,15 @@
 An Atom One inspired dark and light colorscheme for neovim. Plugin modeled after [highlite.vim](https://github.com/Iron-E/nvim-highlite/blob/master/colors/highlite.vim) and [one-nvim](https://github.com/Th3Whit3Wolf/one-nvim)
 
 This fork modified from `one-nvim` to [Plastic](https://plastictheme.com/palette) colorscheme
-- Colors are almost the same, mainly focus on `Plastic legacy v2` theme
+- Colors are almost the same, mainly focus on [Plastic Legacy v2](https://github.com/hadialqattan/plastic-legacy) theme
 - Lualine colorscheme added
 
-<!-- ## Screenshots -->
-<!---->
-<!-- Dark theme -->
-<!---->
-<!-- ![dark theme](assets/dark.png) -->
-<!---->
-<!-- Light theme -->
-<!---->
-<!-- ![light theme](assets/light.png) -->
-<!---->
-<!-- *Font:* Jet Brains Mono -->
-<!-- *Statusline:* [Spaceline](https://github.com/glepnir/spaceline.vim) -->
-<!-- *RGB Highlightin:* [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua) -->
-<!-- *Minimap* [minimap.vim](https://github.com/wfxr/minimap.vim) -->
+## Screenshots
+
+![plastic-nvim](assets/plastic-nvim.png)
+*Font:* [Hack NF](https://github.com/ryanoasis/nerd-fonts/releases/latest) | 
+*Lualine:* [Lualine](https://github.com/nvim-lualine/lualine.nvim) | 
+*RGB Highlightin:* [nvim-colorizer](https://github.com/norcalli/nvim-colorizer.lua)
 
 ## Prerequisites
 
