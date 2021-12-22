@@ -9,7 +9,7 @@ local colors = {
   purple       = '#b57edc',
   grey         = '#21252b',
   inactivegrey = '#181a1f',
-  lightgrey    = '#5f6672',
+  lightgrey    = '#3e4452',
   darkgrey     = '#181a1f',
 }
 

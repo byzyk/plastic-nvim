@@ -83,7 +83,7 @@ local highlight_groups = {
      IncSearch    = { fg = hue_6, bg = mono_3 },
      LineNr       = { fg = mono_2 },
      CursorLineNr = { fg = mono_2, bg = syntax_cursor },
-     MatchParen   = { fg = hue_5, bg = syntax_cursor, style = 'bold' },
+     MatchParen   = { fg = none, bg = mono_4, style = 'bold' },
      Italic       = { fg = none, style = 'italic'},
      ModeMsg      = { fg = mono_1 },
      MoreMsg      = { fg = mono_1 },
