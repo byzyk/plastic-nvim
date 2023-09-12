@@ -75,7 +75,7 @@ local highlight_groups = {
      CursorColumn = { fg = none, bg = syntax_cursor },
      CursorLine   = { fg = none, bg = syntax_cursor },
      Directory    = { fg = hue_2 },
-     EndOfBuffer  = { fg = false, bg = none },
+     EndOfBuffer  = { fg = syntax_bg, bg = none },
      ErrorMsg     = { fg = hue_5, bg = syntax_bg },
      VertSplit    = { fg = vertsplit },
      FloatBorder  = { fg = mono_1, bg = none},
